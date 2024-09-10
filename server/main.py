@@ -26,11 +26,11 @@ app.add_middleware(
 # Load models for different plant types
 models = {
     "potato": {
-        "model": tf.keras.models.load_model("./model/Potato_model.keras"),
+        "model": tf.keras.models.load_model("./models/plant_disease/Potato_model.keras"),
         "class_names": ["Early Blight", "Late Blight", "Healthy"]
     },
     "tomato": {
-        "model": tf.keras.models.load_model("./model/Potato_model.keras"),
+        "model": tf.keras.models.load_model("./models/plant_disease/Potato_model.keras"),
         "class_names": ["Early Blight", "Late Blight", "Healthy"]
     }
 }
