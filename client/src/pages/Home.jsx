@@ -34,8 +34,8 @@ export const Home = () => {
         <img className='absolute top-0 z-0 w-full h-full' src="/assets/bg/bg.png" alt="" />
     </div>
     <Carousell/>
-    <Info/>
-    <About/>
+    {/* <Info/> */}
+    {/* <About/> */}
     <Detection/>
     <Feedback/>
     <Footer/>
