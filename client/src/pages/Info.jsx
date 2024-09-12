@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PiPlantFill } from "react-icons/pi";
 import {  GiReceiveMoney } from "react-icons/gi";
-export const Info = () => {
+const  Info = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center p-10 gap-10 md:justify-between">
       <div className="w-full md:w-1/2">
@@ -64,3 +64,4 @@ export const Info = () => {
     </div>
   );
 };
+export default Info
