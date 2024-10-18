@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import GoogleTranslate from "./GoogleTranslate";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -53,6 +54,10 @@ export const Footer = () => {
               </button>
             </div>
           </form>
+          {/* Add Google Translate component below the Subscribe button */}
+          <div className="mt-4">
+            <GoogleTranslate />
+          </div>
         </div>
 
         {/* Center Links Section */}
