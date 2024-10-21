@@ -9,6 +9,7 @@ import Posts from './pages/Posts'
 import DiseaseDetection from './pages/models/DiseaseDetection'
 import WeatherPrediction from './pages/models/WeatherPrediction'
 import CropRecommendation from './pages/models/CropRecommendation'
+import NearbySoilTestingLabs from './pages/models/NearbySoilTestingLabs'
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/disease-detection" element={<DiseaseDetection />} />
           <Route path="/weather-prediction" element={<WeatherPrediction />} />
           <Route path="/crop-recommendation" element={<CropRecommendation />} />
+          <Route path="/nearby-soil-testing-labs" element={<NearbySoilTestingLabs />} />
        </Routes>
        <ChatBot/>
     </BrowserRouter>
