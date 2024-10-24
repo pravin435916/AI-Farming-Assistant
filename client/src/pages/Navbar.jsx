@@ -20,7 +20,10 @@ export const Navbar = () => {
     return (
         <>
             <nav className="absolute w-full h-24 bg-transparant z-50 p-4 flex justify-between items-center">
-                <span className='text-white absolute left-10 top-10'>Plantiverse</span>
+                <div className='flex gap-12 items-center'>
+                    <img className='w-6' src="/assets/home/kisan.png" alt="" />
+                     <span className='text-white font-bold absolute left-10 top-10'>Kisan मित्र</span>
+                </div>
                 <div className="flex gap-8 absolute right-10 top-10 ">
                     {isAuthenticated ? (
                         <button className='text-xl btn text-black bg-white' onClick={() => logout({ returnTo: window.location.origin })}>Sign out</button>

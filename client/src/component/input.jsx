@@ -49,21 +49,21 @@ function Input() {
       toast.success("Disease Detected Successfully!");
 
       // Proper prompt construction
-      const userInput = `The plant is: ${url}. The detected disease is: ${obj.class}. Based on this, provide the symptoms and treatments in JSON format only.`;
+      // const userInput = `The plant is: ${url}. The detected disease is: ${obj.class}. Based on this, provide the actionable insights and treatment recommendations in JSON format only.`;
 
       // Send message to chat session and get the result
-      const result = await chatSession.sendMessage(userInput);
+      // const result = await chatSession.sendMessage(userInput);
 
       try {
-        console.log(result)
-        let jsonRes = result.response
-          .text()
-          .replace("```json", "")
-          .replace("```", "")
-          console.log(jsonRes)
-        const { symptoms, treatments } = JSON.parse(jsonRes); // Parse JSON for symptoms and treatments
-        setSymptomData(symptoms)
-        setTreatmentData(treatments)
+        // console.log(result)
+        // let jsonRes = result.response
+        //   .text()
+        //   .replace("```json", "")
+        //   .replace("```", "")
+        //   console.log(jsonRes)
+        // const { actionable_insights, treatment_recommendations } = JSON.parse(jsonRes); // Parse JSON for symptoms and treatments
+        // setSymptomData(actionable_insights)
+        // setTreatmentData(treatment_recommendations)
         // console.log("Symptoms: ", symptoms);
         // console.log("Treatments: ", treatments);
       } catch (parseError) {
@@ -141,7 +141,7 @@ function Input() {
           <div className="text2">
             <h2 className="text-xl font-semibold">Result</h2>
             <p><strong>Disease:</strong> {data}</p>
-            <p><strong>Confidence:</strong> {(per * 100).toFixed(2)}%</p>
+            <p><strong>Confidence:</strong> {((per) * 100).toFixed(2)}%</p>
           </div>
 
         </div>
@@ -150,8 +150,8 @@ function Input() {
         treatmentData  ?
         <>
         <div className="flex justify-center w-full gap-4 p-4">
-          <DataList title="Symptoms" data={symptomData} fallback="No symptoms available" />
-          <DataList title="Treatments" data={treatmentData} fallback="No treatments available" />
+          {/* <DataList title="Actionable Insights" data={symptomData} fallback="No symptoms available" />
+          <DataList title="Treatments Recommendation" data={treatmentData} fallback="No treatments available" /> */}
         </div>
         </>
         : ""
