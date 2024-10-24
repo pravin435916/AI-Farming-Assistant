@@ -23,15 +23,15 @@ app.add_middleware(
 
 potato_MODEL = tf.keras.models.load_model("./models/plant_disease/Potato_model.keras")
 tomato_MODEL = tf.keras.models.load_model("./models/plant_disease/Tomato_model.keras")
-blackgram_MODEL = tf.keras.models.load_model("./models/plant_disease/Tomato_model.keras")
-# pepper_MODEL = tf.keras.models.load_model("../saved_models/pepper_model")
-# groundnut_MODEL = tf.keras.models.load_model("../saved_models/groundnut_model")
+blackgram_MODEL = tf.keras.models.load_model("./models/plant_disease/Blackgram_model.keras")
+pepper_MODEL = tf.keras.models.load_model("./models/plant_disease/Pepper_model.keras")
+groundnut_MODEL = tf.keras.models.load_model("./models/plant_disease/groundnut_model.keras")
 
 p_CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 t_CLASS_NAMES = ['Early Blight', 'Late Blight', 'YellowLeaf Curl Virus', 'Mosaic Virus', 'Healthy']
 b_CLASS_NAMES = ['Anthracnose', 'Healthy', 'Leaf Crinckle', 'Powdery Mildew', 'Yellow Mosaic']
-# pep_CLASS_NAMES = ['Bell Bacterial Spot', 'Bell Healthy']
-# g_CLASS_NAMES = ['Early Leaf Spot', 'Early Rust', 'Healthy Leaf', 'Late Leaf Spot', 'Nutrition Deficiency', 'Rust']
+pep_CLASS_NAMES = ['Bell Bacterial Spot', 'Bell Healthy']
+g_CLASS_NAMES = ['Early Leaf Spot', 'Early Rust', 'Healthy Leaf', 'Late Leaf Spot', 'Nutrition Deficiency', 'Rust']
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
@@ -52,12 +52,12 @@ async def predict(plant:str,file: UploadFile = File(...)):
     elif plant == "blackgram":
         predictions = blackgram_MODEL.predict(img_batch)
         predicted_class = b_CLASS_NAMES[np.argmax(predictions[0])]
-    # elif plant == "pepper":
-    #     predictions = pepper_MODEL.predict(img_batch)
-    #     predicted_class = pep_CLASS_NAMES[np.argmax(predictions[0])]
-    # elif plant == "groundnut":
-    #     predictions = groundnut_MODEL.predict(img_batch)
-    #     predicted_class = g_CLASS_NAMES[np.argmax(predictions[0])]
+    elif plant == "pepper":
+        predictions = pepper_MODEL.predict(img_batch)
+        predicted_class = pep_CLASS_NAMES[np.argmax(predictions[0])]
+    elif plant == "groundnut":
+        predictions = groundnut_MODEL.predict(img_batch)
+        predicted_class = g_CLASS_NAMES[np.argmax(predictions[0])]
         
     confidence = np.max(predictions[0])
     return {
